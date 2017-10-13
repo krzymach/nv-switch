@@ -11,7 +11,7 @@ else
 fi
 
 if [ $newgpu = error ] ; then
-	zenity --error --text="<span size=\"xx-large\"><b>Erreur. Status gpu non reconnu.</b></span>" --title="Nvidia GPU switch" --ok-label="Quitter" && exit
+	zenity --error --text="<span size=\"xx-large\"><b>Error. Could not switch NVIDIA card.</b></span>" --title="Nvidia GPU switch" --ok-label="Quit" && exit
 fi
 
-gksu prime-select $newgpu && DISPLAY=:0 gnome-session-quit --force
+sudo prime-select $newgpu && sudo systemctl restart lightdm
